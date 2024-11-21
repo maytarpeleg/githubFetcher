@@ -18,11 +18,11 @@ A simple client library is also provided.
 # Usage
 * Create a GitHub classic API token 
   * Follow instruction in the following link and check the repo scope access https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
-* Make sure you have the right permissions to the wanted GitHub organization
+* Make sure you have the right permissions to the wanted GitHub organization.
 * Run the server:
-  * `GITHUB_TOKEN=<token> go run githubFetcher/server/cmd/main.go`
+  * `GITHUB_TOKEN=<token> ADDRESS=<address> go run githubFetcher/server/cmd/main.go`
 * Run the client:
-  * `go run githubFetcher/client/cmd/main.go --organization <organization>`
+  * `ADDRESS=<address> go run githubFetcher/client/cmd/main.go --organization <organization>`
 
 # Policies
 The policies are located under the `policies` directory.
@@ -36,3 +36,12 @@ Each directory contains:
 1. GitHub repository collaborators should not be in the blocked list
 2. GitHub repository collaborators site-admin should be in the allowed list
 
+# Server Accepted Environment Variable
+* **GITHUB_TOKEN** - the token used for GitHub api requests
+* **ADDRESS** - the address the server will listen on, default is localhost:9900
+
+### .env example
+```
+GITHUB_TOKEN=ghp_asda123123123
+ADDRESS=localhost:8200
+```

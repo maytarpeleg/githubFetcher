@@ -1,9 +1,9 @@
 # GithubFetcher
 
-A gRPC-based backend service that interacts with GitHub repositories within an organization.
+A gRPC-based backend service for validating policies on GitHub organization repositories.
 
-The service provides one rpc method - GetRepositoriesEvaluation, which fetches repositories details of a given organization and then evaluates them.
-Evaluation is done by the OPA engin. polices are read from the `polices` directory.
+The service provides one RPC method - GetRepositoriesEvaluation, which receives a GitHub organization name, fetches its repositories details and evaluates them.
+Evaluation is done by the OPA engine. Policies are read from the `policies` directory.
 
 A simple client library is also provided.
 
@@ -22,6 +22,7 @@ A simple client library is also provided.
 * `GITHUB_TOKEN=<token> go run githubFetcher/server/cmd/main.go`
 
 # Policies
-1. Github repository collaborators should not be in the blocked list
-2. Github repository collaborators site-admin should be in the allowed list
+### Current Policies
+1. GitHub repository collaborators should not be in the blocked list
+2. GitHub repository collaborators site-admin should be in the allowed list
 

@@ -1,4 +1,4 @@
-# GithubFetcher
+# Github Repositories Evaluator
 
 A gRPC-based backend service for validating policies on GitHub organization repositories.
 
@@ -23,6 +23,9 @@ A simple client library is also provided.
   * `GITHUB_TOKEN=<token> ADDRESS=<address> go run githubFetcher/server/cmd/main.go`
 * Run the client:
   * `ADDRESS=<address> go run githubFetcher/client/cmd/main.go --organization <organization>`
+
+### Output For Example
+![Test output](docs/output.png)
 
 # Policies
 The policies are located under the `policies` directory.

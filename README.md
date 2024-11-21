@@ -18,6 +18,7 @@ A simple client library is also provided.
 # Usage
 * Create a GitHub classic API token 
   * Follow instruction in the following link and check the repo scope access https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+* Make sure you have the right permissions to the wanted Github organization
 * `GITHUB_TOKEN=<token> go run githubFetcher/server/cmd/main.go`
 
 # Policies

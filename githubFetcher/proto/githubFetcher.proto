@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package proto;
+
+option go_package = "/../server;server";
+
+service GithubFetcher {
+  rpc GetRepositoriesEvaluation (GetRepositoriesEvaluationRequest) returns (GetRepositoriesEvaluationResponse);
+}
+
+message GetRepositoriesEvaluationRequest {
+  string organization = 1;
+}
+
+message GetRepositoriesEvaluationResponse {
+  repeated Repository repositories = 1;
+}
+
+message Repository {
+  string name = 1;  
+  repeated Policy policies = 2;
+}
+
+message Policy {
+  string id = 1;
+  string title = 3;
+  bool result = 4;
+}

@@ -1,0 +1,17 @@
+{
+  "name": "my-repo",
+  "collaborators": [
+    {
+      "login": "non_allowed_admin_user1",
+      "site_admin": false
+    },
+    {
+      "login": "non_allowed_admin_user1",
+      "site_admin": false
+    },
+    {
+      "login": "Maytar",
+      "site_admin": true
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "my-repo",
+  "collaborators": [
+    {
+      "login": "Peleg"
+    },
+    {
+      "login": "Maytar"
+    }
+  ]
+}

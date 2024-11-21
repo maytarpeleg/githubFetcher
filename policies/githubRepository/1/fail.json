@@ -1,0 +1,8 @@
+{
+  "name": "my-repo",
+  "collaborators": [
+    {
+      "login": "blocked_user_2"
+    }
+  ]
+}

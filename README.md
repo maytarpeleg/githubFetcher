@@ -25,7 +25,7 @@ A simple client library is also provided.
   * `ADDRESS=<address> go run githubFetcher/client/cmd/main.go --organization <organization>`
 
 ### Output For Example
-![Test output](docs/output.png)
+![Test output](docs/outputExample.png)
 
 # Policies
 The policies are located under the `policies` directory.

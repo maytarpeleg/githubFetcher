@@ -7,6 +7,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"runtime"
 	"strings"
 
 	"github.com/open-policy-agent/opa/rego"
@@ -15,8 +16,8 @@ import (
 )
 
 const (
-	policiesDirPath      = "../../policies/githubRepository"
 	policyFileNameSuffix = ".rego"
+	policiesDirPath      = "../../../../policies/githubRepository"
 )
 
 type policyMetadata struct {
@@ -25,14 +26,14 @@ type policyMetadata struct {
 }
 
 func evaluatePolicies(ctx context.Context, input map[string]interface{}) ([]*proto.Policy, error) {
-	policiesResult := make([]*proto.Policy, 0)
-
-	currentDir, err := os.Getwd()
-	if err != nil {
-		return nil, fmt.Errorf("[%s] error getting current directory: %w", ctx, err)
+	_, currentFilePath, _, ok := runtime.Caller(1)
+	if !ok {
+		return nil, fmt.Errorf("[%s] could not get caller", ctx)
 	}
 
-	err = filepath.Walk(path.Join(currentDir, policiesDirPath), func(path string, info os.FileInfo, err error) error {
+	policiesResult := make([]*proto.Policy, 0)
+
+	err := filepath.Walk(path.Join(currentFilePath, policiesDirPath), func(path string, info os.FileInfo, err error) error {
 		if err != nil {
 			return err
 		}
@@ -65,7 +66,7 @@ func evaluatePolicies(ctx context.Context, input map[string]interface{}) ([]*pro
 	})
 
 	if err != nil {
-		return nil, fmt.Errorf("[%s] error walking through policies directories: %w", ctx, err)
+		return nil, fmt.Errorf("[%s] error walking through policies directories: %w, cwd: %s", ctx, err, currentFilePath)
 	}
 
 	return policiesResult, nil

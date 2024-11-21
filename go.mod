@@ -3,6 +3,7 @@ module rigSecurityMaytar
 go 1.23
 
 require (
+	github.com/alexflint/go-arg v1.5.1
 	github.com/go-resty/resty/v2 v2.16.0
 	github.com/joho/godotenv v1.5.1
 	github.com/open-policy-agent/opa v0.70.0
@@ -13,6 +14,7 @@ require (
 require (
 	github.com/OneOfOne/xxhash v1.2.8 // indirect
 	github.com/agnivade/levenshtein v1.2.0 // indirect
+	github.com/alexflint/go-scalar v1.2.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/cespare/xxhash/v2 v2.3.0 // indirect
 	github.com/go-ini/ini v1.67.0 // indirect
